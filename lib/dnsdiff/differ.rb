@@ -12,8 +12,8 @@ module DNSDiff
     def initialize(ns1, ns2)
       @query_list = []
       @resolvers = {
-        :source => Dnsruby::Resolver.new(:nameserver => ns1),
-        :dest   => Dnsruby::Resolver.new(:nameserver => ns2)
+        :source => Dnsruby::Resolver.new(:nameserver => ns1, :do_caching => false),
+        :dest   => Dnsruby::Resolver.new(:nameserver => ns2, :do_caching => false)
       }
     end
 
@@ -39,4 +39,3 @@ module DNSDiff
 
   end
 end
-
